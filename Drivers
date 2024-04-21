@@ -1,0 +1,109 @@
+#!/bin/bash
+clear
+source config/logo/logo16
+
+echo -e "\t
+                                                           -> Для графики Intel введите ( 1 ) "
+echo -e "\t
+
+
+                                                           -> Для графики AMD введите   ( 2 )  "
+
+echo -e "\t
+
+                                                           -> Для графики NVIDIA введите ( 3 ) "
+
+echo -e "\t
+
+                                                           -> Ручная установка драйвера Nvidia ( 4 ) "
+
+echo -e "\t
+
+                                                          -> Для установки драйвера гибридной графики
+                                                            Например INTEL + NVIDIA , AMD + NVIDIA и т.д  ( 5 ) "
+echo -n "
+
+                                                            -> Введите значение : "
+read main_menu
+      case "$main_menu" in
+         "1" ) source config/drivers/intel
+        ;;
+         "2" ) source config/drivers/amd
+        ;;
+         "3" )
+clear
+source config/logo/logo17
+echo -e "\t
+
+
+                                                      ->  Установить проприетарный драйвер     1     "
+echo -e "\t
+
+
+                                                       ->  Установить Open source драйвер      2    "
+echo -n "
+
+                                                          -> Введите значение : "
+read main_menu
+      case "$main_menu" in
+       "1" ) source config/drivers/nvidia/nonfree
+       ;;
+       "2" ) source config/drivers/nvidia/free
+     esac
+        ;;
+        "4" )
+clear
+source config/logo/logo18
+echo -e "\t
+
+                                                             ->   Продолжить    1     "
+
+echo -n "
+
+                                                             -> Введите значение : "
+read main_menu
+      case "$main_menu" in
+         "1" )
+         clear ; mhwd --list
+         read -p "
+                                                           -> Введите значение : " namedriver
+
+         hwddriver='mhwd -i pci $namedriver'
+      esac
+
+        ;;
+        "5" )
+clear
+source config/logo/logo19
+echo -e "\t
+
+                                                       ->  INTEL + AMD      1     "
+
+echo -e "\t
+                                                       ->  INTEL + NVIDIA ( Проприетарный драйвер  Nvidia )     2    "
+echo -e "\t
+
+                                                       ->  INTEL + NVIDIA ( Open source драйвер Nvidia )     3    "
+
+echo -e "\t
+                                                       ->  AMD + NVIDA   ( Проприетарный драйвер  Nvidia )    4    "
+
+echo -e "\t
+                                                       ->  AMD + NVIDA   ( Open source драйвер Nvidia )    5    "
+echo -n "
+
+                                                        -> Введите значение : "
+read main_menu
+      case "$main_menu" in
+       "1" ) source config/drivers/hybrid/intel_amd
+       ;;
+       "2" ) source config/drivers/hybrid/intel_nvidia_nonfree
+       ;;
+       "3" ) source config/drivers/hybrid/intel_nvidia_free
+       ;;
+       "4" ) source config/drivers/hybrid/amd_nvidia_nonfree
+       ;;
+       "5" ) source config/drivers/hybrid/amd_nvidia_free
+      esac
+
+      esac
