@@ -2,4 +2,4 @@
 
 sudo mv igpu_conf/igpu.service /etc/systemd/system
 sudo mv igpu_conf/igpu /usr/bin
-sudo systemctl enable -now igpu
+sudo systemctl enable --now igpu
