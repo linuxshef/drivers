@@ -1,0 +1,5 @@
+#!/bin/bash
+
+intel_gpu_frequency --max
+
+systemctl stop igpu.service

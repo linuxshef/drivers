@@ -1,0 +1,12 @@
+[Unit]
+Description=Script
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/igpu
+TimeoutStartSec=0
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
