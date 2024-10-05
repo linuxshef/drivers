@@ -1,5 +1,5 @@
 #!/bin/bash
 
-sudo mv drivers/igpu_conf/igpu.service /etc/systemd/system
-sudo mv drivers/igpu_conf/igpu /usr/bin
+sudo mv igpu_conf/igpu.service /etc/systemd/system
+sudo mv igpu_conf/igpu /usr/bin
 sudo systemctl enable -now igpu
