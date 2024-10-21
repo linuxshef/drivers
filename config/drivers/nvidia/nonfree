@@ -16,5 +16,5 @@
 #
 #
 #
-graphc_drivers='sudo pacman -Sy vulkan-icd-loader lib32-vulkan-icd-loader network-manager-applet --noconfirm'
+graphc_drivers='sudo pacman -R libxnvctrl conky nvidia-settings --noconfirm ; sudo pacman -Sy vulkan-icd-loader lib32-vulkan-icd-loader network-manager-applet --noconfirm'
 nvidia_driver="sudo mhwd -a pci nonfree 0300"
