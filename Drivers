@@ -108,6 +108,5 @@ read main_menu
 
       esac
 $preparing
-$graphc_drivers
 $nvidia_driver
-#$optimus
+$graphc_drivers
